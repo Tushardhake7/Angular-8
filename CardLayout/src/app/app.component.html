@@ -1,0 +1,16 @@
+<table>
+  <tr *ngFor="let data of product">
+<td (click)="getData(data)">{{ data.product }}</td>
+  </tr>
+</table>
+
+<br/>
+<br/>
+<br/>
+
+<app-product *ngFor="let data of productOutput"> 
+  <div class="Id"> {{ data.id }} </div>
+  <div class="header"> {{ data.product }} </div>
+  <div class="body"> {{ data.Description }} </div>
+  <div class="footer"> {{ data.company }} </div>
+</app-product>

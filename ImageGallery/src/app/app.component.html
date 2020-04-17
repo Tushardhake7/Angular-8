@@ -1,0 +1,28 @@
+Enter Category: 
+<input #search [(ngModel)]="search.value" type="text"/> 
+
+{{search.value}}
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Category</th>
+      <th>Image</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let data of ImageList | imagePipe: search.value">
+      <td>{{data.id}}</td>
+      <td>{{data.category}}</td>
+      <td> <img src="{{data.img}}" height="50px"/></td>
+    </tr>
+
+
+
+
+  </tbody>
+</table>

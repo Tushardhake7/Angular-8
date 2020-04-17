@@ -1,0 +1,51 @@
+<h1> Reactive Form Example</h1>
+
+<h6>{{ myform.value | json }}</h6>
+
+<div>
+    <form [formGroup]='myform' (ngSubmit)='myfun(myform)'>
+        <div>
+            <label for=""> Username: </label>
+            <input type="text" formControlName='name' name="" id="" placeholder="Enter your name"/>
+
+                <div *ngIf='!name.valid && (name.touched || name.dirty)'>
+                    <div *ngIf="name.errors['required']">
+                        Please fill the field...
+                    </div>
+
+                    <div *ngIf="name.errors['minlength']">
+                        Please enter min 3 letters...
+                    </div>
+
+                    <div *ngIf="name.errors['maxlength']">
+                        Max 12 letters allowed...
+                    </div>                
+                </div>
+        </div>
+
+        <div>
+            <label for=""> DOB: </label>
+            <input type="text" formControlName='DOB' name="" id="" placeholder="Enter your DOB"/>
+        </div>
+
+        <h6>Address</h6>
+
+        <div formGroupName='address'>
+            <div>
+                <label for=""> Street: </label>
+                <input type="text" formControlName='street' name="" id="" placeholder="Enter your street"/>
+            </div>
+
+            <div>
+                <label for=""> City: </label>
+                <input type="text" formControlName='city' name="" id="" placeholder="Enter your city"/>
+            </div>
+        </div>
+
+        <br/>
+
+        <input type="submit" [disabled]='!myform.valid' value="Submit Form"/>
+
+
+    </form>
+<div>
